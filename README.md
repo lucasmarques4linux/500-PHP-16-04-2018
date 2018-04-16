@@ -41,3 +41,27 @@ cd 500
 cd /var/www/html/500
 subl .
 ```
+
+## Github
+Criar conta no github
+Instalar git no computador
+```
+sudo apt install git
+```
+Verificar se foi instalado
+```
+git --version
+```
+Iniciando repositório
+```
+cd /var/www/html/500
+git init
+git add --all
+git commit -m "Inicio do Curso"
+```
+Criando repositório no Github
+Subindo projeto pro Github
+```
+git remote add origin https://github.com/lucasmarques4linux/500-PHP-16-04-2018.git
+git push origin master
+```
