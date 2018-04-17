@@ -79,3 +79,6 @@ for ($i=0; $i < $tam; $i++) {
 	}
 }
 print_r($numeros);
+
+echo '<hr>';
+
