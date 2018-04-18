@@ -6,7 +6,7 @@ if (!empty($_POST)) {
 	$altura = $_POST['altura'];
 	$peso = $_POST['peso'];
 
-	$imc = round(calculaImc($altura,$peso),2);
+	$imc = calculaImc($altura,$peso);
 
 	$msg = exibeImc($imc);
 

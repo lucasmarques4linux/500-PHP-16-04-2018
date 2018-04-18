@@ -3,7 +3,7 @@
 function calculaImc($altura, $peso)
 {
 	$imc = $peso / ($altura * $altura);
-	return $imc;
+	return round($imc,2);
 }
 
 function exibeImc($imc)
