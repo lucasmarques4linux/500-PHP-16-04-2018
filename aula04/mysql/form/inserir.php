@@ -1,19 +1,17 @@
 <?php 
 
 //Inserindo dados no banco
-require 'conexao.php';
+require_once '../../bancoMysql.php';
 
 if (!empty($_POST)) {
-	
-	$email = $_POST['email'];
-	$senha = $_POST['senha'];
+	$dados = ['email' => $_POST['email'],'senha' => $_POST['senha']];
+	$id = ($_POST['id']) ?: null;
+	//$id = ($_POST['id']) ? $_POST['id'] : null;
+	// if($_POST['id']){ $id = $_POST['id']; } else { $id = null; }
 
-	$query = "INSERT INTO usuarios(email,senha) VALUES ('{$email}','{$senha}')";
-
-	$result = mysqli_query($con,$query);
-	if ($result) {
-		echo 'OK';
+	if ($id) {
+		editar('usuarios',$dados,'id='.$id);
 	} else {
-		echo 'Erro ao inserir';
+		inserir('usuarios',$dados);
 	}
 }

@@ -1,30 +1,27 @@
 <?php 
 
 //Buscando informações do banco
-require 'conexao.php';
+require_once '../../bancoMysql.php';
 
-$query = "SELECT * FROM usuarios";
-
-// echo $query;
-
-echo '<br>';
-$result = mysqli_query($con,$query);
-// Para mais de um registro
-$data = mysqli_fetch_all($result,MYSQLI_ASSOC);
-
-if (count($data) <= 0) {
-	echo 'Não encontrou nada';
-}
+$data = buscarTodos('usuarios');
 ?>
 <table border="1">
 	<tr>
 		<td>Email</td>
 		<td>Senha</td>
+		<td>Ações</td>
 	</tr>
 	<?php foreach ($data as $user) :?>
 		<tr>
 			<td><?= $user['email'] ?></td>
 			<td><?= $user['senha'] ?></td>
+			<td>
+				<form method="post" action="deletar.php">
+					<input type="hidden" name="id" value="<?= $user['id']?>">
+					<input type="submit" value="Excluir">
+				</form>
+				<a href="form.php?id=<?=$user['id']?>">Editar</a>
+			</td>
 		</tr>
 	<?php endforeach; ?>
 </table>

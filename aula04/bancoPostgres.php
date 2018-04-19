@@ -102,8 +102,7 @@ function buscarTodos(
 		$query .= " LIMIT {$limite}";
 	}
 
-	echo '<pre>';
-	echo $query;
+	$con = conectar();
+	$result = pg_query($con,$query);
+    return pg_fetch_all($result);
 }
-
-buscarTodos('usuarios',null,null,null,'id',3);
