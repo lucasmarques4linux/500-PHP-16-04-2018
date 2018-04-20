@@ -1,0 +1,21 @@
+```
+project/
+	.admin/
+		.layout/
+		.users/
+			.views/
+			.actions/
+		.posts/
+			.views/
+			.actions/
+		. login/
+			.views/
+			.actions/
+	.include/
+		.database/
+		.funcs/
+		.console/
+	.site/
+		.layout/
+	index.php
+```
